@@ -1,0 +1,17 @@
+services:
+###########################
+# Setup the JAVA container
+###########################
+    linux_java:
+        container_name: ${NAME_PROJECT}_java
+        restart: always
+        build: 
+            context: ./.docker/images/linux_java/
+            args:
+                - VALUE_UBUNTU_VERSION=${VALUE_UBUNTU_VERSION}
+                - VALUE_JAVA_VERSION=${VALUE_JAVA_VERSION}
+        tty: true
+        stdin_open: true
+        volumes:
+            - ./project:/home/project:rw
+            - ./jvm:/jvm:rw
