@@ -11,3 +11,4 @@
 /project/.env
 /project/plugins/
 /jvm
+/.dockertmp

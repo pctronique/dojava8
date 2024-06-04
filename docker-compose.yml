@@ -14,4 +14,5 @@ services:
         stdin_open: true
         volumes:
             - ./project:/home/project:rw
-            - ./jvm:/jvm:rw
+            - ./.dockertmp/jvm:/jvm:rw
+            - ./.dockertmp/log/java:/var/log/java:rw

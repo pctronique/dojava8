@@ -1,18 +1,18 @@
 #!/bin/bash
 
-if [ -z ${GCC_FOLDER_PROJECT} ]
+if [ -z ${JAVA_FOLDER_PROJECT} ]
 then
-    GCC_FOLDER_PROJECT=/home/project/
+    JAVA_FOLDER_PROJECT=/home/project/
 fi
 
 if [ -z ${PHP_FOLDER_LOG} ]
 then
-    GCC_FOLDER_LOG=/var/log/docker/gcc/
+    JAVA_FOLDER_LOG=/var/log/java/
 fi
 
-cd ${GCC_FOLDER_PROJECT}
+cd ${JAVA_FOLDER_PROJECT}
 
-if [ -f "${GCC_FOLDER_PROJECT}/autobash.sh" ]; then
-    chmod 777 ${GCC_FOLDER_PROJECT}/autobash.sh
-    ${GCC_FOLDER_PROJECT}/autobash.sh >> ${GCC_FOLDER_LOG}/auto_out.log 2>> ${GCC_FOLDER_LOG}/auto_error.log
+if [ -f "${JAVA_FOLDER_PROJECT}/autobash.sh" ]; then
+    chmod 777 ${JAVA_FOLDER_PROJECT}/autobash.sh
+    ${JAVA_FOLDER_PROJECT}/autobash.sh >> ${JAVA_FOLDER_LOG}/auto_out.log 2>> ${JAVA_FOLDER_LOG}/auto_error.log
 fi
