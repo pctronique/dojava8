@@ -8,12 +8,12 @@
 # Short-Description: start nodejs server
 ### END INIT INFO
 
-DAEMON="/var/java/updateProject.sh" #ligne de commande du programme, attention à l'extension .py.
+DAEMON="/var/docker/java/updateProject.sh" #ligne de commande du programme, attention à l'extension .py.
 DAEMONUSER="root" #utilisateur du programme
 daemon_NAME="startautobash" #Nom du programme (doit être identique à l'exécutable).
 
 d_start () {
-    /var/java/updateProject.sh start
+    /var/docker/java/updateProject.sh start
 }
  
 case "$1" in

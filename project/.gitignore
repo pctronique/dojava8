@@ -1,3 +1,4 @@
+/.vscode/
 /nbproject/private/
 /build/
 /dist/
@@ -7,10 +8,7 @@
 /project/nbproject/private/
 /project/build/
 /project/dist/
-/project/data/
 /project/.env
 /project/plugins/
-/project/tmp/
+/project/.webapps/WebApplication/
 /jvm
-/.dockertmp
-/tmp

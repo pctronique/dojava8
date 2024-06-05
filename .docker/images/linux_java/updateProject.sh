@@ -7,7 +7,7 @@ fi
 
 if [ -z ${PHP_FOLDER_LOG} ]
 then
-    JAVA_FOLDER_LOG=/var/log/java/
+    JAVA_FOLDER_LOG=/var/log/docker/java/
 fi
 
 cd ${JAVA_FOLDER_PROJECT}

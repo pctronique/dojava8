@@ -13,6 +13,11 @@ services:
         tty: true
         stdin_open: true
         volumes:
-            - ./project:/home/project:rw
+            - ./.dockertmp/log/java/:/var/log/docker/java/:rw
+            - ./project:/home/project/:rw
+            - ./config/data:/docker-entrypoint-initdata.d:rw
+            - ./config/dockercron:/var/docker/cron/dockercron:rw
+            - ./.dockertmp/tomcat:/var/docker/tomcat:rw
             - ./.dockertmp/jvm:/jvm:rw
-            - ./.dockertmp/log/java:/var/log/java:rw
+        environment:
+            - JAVA_NAME_PROJECT=${NAME_PROJECT}
