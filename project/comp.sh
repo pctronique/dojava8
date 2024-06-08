@@ -11,6 +11,8 @@ mkdir build
 rm -rf tmp
 mkdir tmp
 
+export JAR_NAME_PROJECT=dojava8
+
 if [ -z ${VALUE_JAVA_VERSION} ]
 then
     VALUE_JAVA_VERSION=8
@@ -62,7 +64,10 @@ fi
 cd build
 cmake ../
 make
-cd ..
+cd tmp
+#zip -gr ${JAR_NAME_PROJECT}.jar resources > /tmp/zip.log
+cp ${JAR_NAME_PROJECT}.jar ../../dist
+cd ../..
 
 rm -rf build
 rm -rf tmp
