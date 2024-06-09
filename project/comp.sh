@@ -4,6 +4,8 @@
 
 #!/bin/sh
 
+cd ${0%/*}
+
 rm -rf dist
 mkdir dist
 rm -rf build
@@ -50,7 +52,7 @@ fi
 
 IFS=' ' read -r -a arrayJava <<< "${LIST_ALL_JAVA}"
 
-if [ -z ${JAVA_FILE_MAIN} ]
+if [ -z ${JAVA_CLASS_MAIN} ]
 then
     for FILE_JAVA in "${arrayJava[@]}"
     do
@@ -58,7 +60,7 @@ then
             FILE_JAVA=${FILE_JAVA/src\//}
             FILE_JAVA=${FILE_JAVA/\.java/}
             FILE_JAVA=$(sed "s/\//./gm" <<< "${FILE_JAVA}")
-            JAVA_FILE_MAIN=${FILE_JAVA}
+            JAVA_CLASS_MAIN=${FILE_JAVA}
         fi
     done
 fi
@@ -67,9 +69,9 @@ echo "Manifest-Version: 1.0" > ${MANI_FOLDER}/MANIFEST.MF
 echo "Created-By: ${VALUE_JAVA_VERSION} (Ubuntu)" >> ${MANI_FOLDER}/MANIFEST.MF
 echo "Class-Path: ${LIST_LIB_JAR}" >> ${MANI_FOLDER}/MANIFEST.MF
 
-if [ ! -z ${JAVA_FILE_MAIN} ]
+if [ ! -z ${JAVA_CLASS_MAIN} ]
 then
-    echo "Main-Class: ${JAVA_FILE_MAIN}" >> ${MANI_FOLDER}/MANIFEST.MF
+    echo "Main-Class: ${JAVA_CLASS_MAIN}" >> ${MANI_FOLDER}/MANIFEST.MF
 fi
 
 if [ ! -z ${FIND_SPLASHSCREEN} ]
@@ -87,16 +89,16 @@ if [ ! -z ${FIND_SPLASHSCREEN} ]
 then
     mkdir -p "META-INF"
     cp "../../${JAR_NAME_SPLASHSCREEN}" "META-INF/"
-    zip -gr ${JAR_NAME_PROJECT}.jar META-INF >> /tmp/zip.log
+    zip -gr ${JAR_NAME_EXE}.jar META-INF >> /tmp/zip.log
 fi
 rm resources/README.md
 LIST_RESOURCES=$(find -L resources -name "*")
 LIST_RESOURCES=$(echo ${LIST_RESOURCES})
 if [[ ! -z ${LIST_RESOURCES} && ${LIST_RESOURCES} != "resources" ]]
 then
-    zip -gr ${JAR_NAME_PROJECT}.jar resources >> /tmp/zip.log
+    zip -gr ${JAR_NAME_EXE}.jar resources >> /tmp/zip.log
 fi
-cp ${JAR_NAME_PROJECT}.jar ../../dist
+cp ${JAR_NAME_EXE}.jar ../../dist
 cd ../..
 
 rm -rf build
