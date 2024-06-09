@@ -33,6 +33,8 @@ RUN apt-get install -y libmariadb-java
 RUN apt-get install -y libjakarta-servlet-api-java
 RUN apt-get install -y libmail-java
 RUN apt-get install -y cron
+RUN apt-get install -y unzip
+RUN apt-get install -y zip
 
 #del list
 RUN rm -rf /var/lib/apt/lists/*

@@ -1,12 +1,14 @@
 /nbproject/private/
 /build/
 /dist/
+/bin/
 /.env
 /plugins/
 /project/.vscode/
 /project/nbproject/private/
 /project/build/
 /project/dist/
+/project/bin/
 /project/data/
 /project/.env
 /project/plugins/

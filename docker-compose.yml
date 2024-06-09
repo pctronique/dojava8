@@ -15,6 +15,7 @@ services:
         volumes:
             - ./.dockertmp/log/java/:/var/log/docker/java/:rw
             - ./project:/home/project/:rw
+            - ./.env:/home/project/.env:rw
             - ./config/data:/docker-entrypoint-initdata.d:rw
             - ./config/dockercron:/var/docker/cron/dockercron:rw
             - ./.dockertmp/tomcat:/var/docker/tomcat:rw
