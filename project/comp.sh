@@ -32,7 +32,7 @@ cd ${JAVA_FOLDER_PROJECT}
 
 while read line  
 do
-    if [[ "$line" =~ .*"=".* ]]; then
+    if [[ (! $line =~ ^#.*) && ($line =~ .*=.*) ]]; then
         export "$line"
     fi
 done < ${0%/*}/.env
